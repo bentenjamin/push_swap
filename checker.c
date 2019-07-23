@@ -109,6 +109,7 @@ int main(int argc, char **argv)
 {
     t_flgs  *flgs;
     t_ps    *stka;
+    t_ps    *stkb;
 
     if (argc == 1)
         exit(0);
