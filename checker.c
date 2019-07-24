@@ -119,6 +119,7 @@ int main(int argc, char **argv)
         ft_putstr_fd("Error\n", 2);
         exit(1);
     }
+    while ((ret = get_next_line(1,))
     if ((flgs->v) && stka)
         ft_vstk(&stka);
     ft_freestck(&stka);
