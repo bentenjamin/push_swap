@@ -1,35 +1,34 @@
 #include "ps.h"
 
-int    swp(t_ps **stk)
+void    swp(t_ps **stk)
 {
     int i;
 
     if (!(*stk) || !((*stk)->xt))
-        return (0);
+        return ;
     i = (*stk)->num;
     (*stk)->num = (*stk)->xt->num;
     (*stk)->xt->num = i;
-    return (1);
 }
 
-int    psh(t_ps **stkfrm, t_ps **stkto)
+void    psh(t_ps **stkfrm, t_ps **stkto)
 {
     t_ps *tmp;
 
     if (!(*stkfrm))
-        return (0);
+        return ;
     tmp = *stkto;
     *stkto = *stkfrm;
     *stkfrm = (*stkfrm)->xt;
     (*stkto)->xt = tmp;
 }
 
-int    rot(t_ps **stk)
+void    rot(t_ps **stk)
 {
     t_ps    *tmp;
 
     if (!(*stk) || !((*stk)->xt))
-        return (0);
+        return ;
     tmp = *stk;
     while (tmp->xt)
         tmp = tmp->xt;
@@ -38,12 +37,12 @@ int    rot(t_ps **stk)
     tmp->xt->xt = NULL;
 }
 
-int    revrot(t_ps **stk)
+void    revrot(t_ps **stk)
 {
     t_ps    *tmp;
 
     if (!(*stk) || !((*stk)->xt))
-        return (0);
+        return ;
     tmp = *stk;
     while (tmp->xt->xt)
         tmp = tmp->xt;
@@ -52,23 +51,22 @@ int    revrot(t_ps **stk)
     tmp->xt = NULL;
 }
 
-int    caller(char *s, t_ps **stka, t_ps **stkb)
+void    caller(char *s, t_ps **stka, t_ps **stkb)
 {
-    if (s == "sa" || s == "ss")
-        return (swp(stka));
-    if (s == "sb" || s == "ss")
-        return (swp(stkb));
-    if (s == "pa")
-        return (psh(stkb, stka));
-    if (s == "pb")
-        return (psh(stka, stkb));
-    if (s == "ra" || s == "rr")
-        return (rot(stka));
-    if (s == "rb" || s == "rr")
-        return (rot(stkb));
-    if (s == "rra" || s == "rrr")
-        return (revrot(stka));
-    if (s == "rrb" || s == "rrr")
-        return (revrot(stkb));
-    return (0);
+    if (ft_strncmp(s,"sa", 2) == 0 || ft_strncmp(s,"ss", 2) == 0)
+        swp(stka);
+    if (ft_strncmp(s,"sb", 2) == 0 || ft_strncmp(s,"ss", 2) == 0)
+        swp(stkb);
+    if (ft_strncmp(s,"pa", 2) == 0)
+        psh(stkb, stka);
+    if (ft_strncmp(s,"pb", 2) == 0)
+        psh(stka, stkb);
+    if (ft_strncmp(s,"ra", 2) == 0 || ft_strncmp(s,"rr", 2) == 0)
+        rot(stka);
+    if (ft_strncmp(s,"rb", 2) == 0 || ft_strncmp(s,"rr", 2) == 0)
+        rot(stkb);
+    if (ft_strncmp(s,"rra", 3) == 0 || ft_strncmp(s,"rrr", 3) == 0)
+        revrot(stka);
+    if (ft_strncmp(s,"rrb", 3) == 0 || ft_strncmp(s,"rrr", 3) == 0)
+        revrot(stkb);
 }

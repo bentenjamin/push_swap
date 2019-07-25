@@ -6,7 +6,7 @@
         {
             "label": "idk",
             "type": "shell",
-            "command": "gcc -Wall -Werror -Wextra -g checker.c Libft/libft.a"
+            "command": "gcc -Wall -Werror -Wextra -g checker.c pins.c Libft/libft.a"
         }
     ]
 }
