@@ -14,6 +14,8 @@ void    vall(t_ps *ta, t_ps *tb)
 {
     (ta) ? ft_putnbr(ta->num) : ft_putchar('-');
     ft_putchar('\t');
+    if (!ta || (ta->num < 10000000))
+        ft_putchar('\t');
     (tb) ? ft_putnbr(tb->num) : ft_putchar('-');
     ft_putchar('\n');
     ta = (ta) ? ((ta->xt) ? ta->xt : NULL) : NULL;
@@ -102,6 +104,20 @@ int ft_rd(char **arr, t_ps **stka, t_flgs **flgs)
                 (!(ft_stkadd(ft_atoi(arr[i]), stka))))
             return (0);
     i++;
+    }
+    return (1);
+}
+
+char    chkstk(t_ps *stka, t_ps *stkb)
+{
+    if (stkb)
+        return (0);
+
+    while (stka)
+    {
+        if (stka->num > stka->xt->num)
+            return (0);
+        stka = stka->xt;
     }
     return (1);
 }

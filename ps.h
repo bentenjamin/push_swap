@@ -1,11 +1,13 @@
 #ifndef PS_H
 # define PS_H
 # include "Libft/libft.h"
+
 # define erexit {ft_putstr_fd("Error\n", 2);exit(1);}
-# define vstk(ta, tb) {if (flgs->v) {\
-                    ft_putendl("\nStack A\tStack B");\
+# define vstk(ta, tb, f) {if (f->v) {system("clear");\
+                    ft_putendl("\nStack A\t\tStack B");\
                     vall(ta, tb);\
-                    ft_putstr("\n\n");}}
+                    ft_putstr("\n\n");\
+                    usleep(100000);}}
 
 typedef struct  s_ps
 {
@@ -27,5 +29,7 @@ void                ft_setflgs(char *s, t_flgs **flgs);
 int                 ft_stkadd(int num, t_ps **stck);
 char                ft_chkdups(int num, t_ps **stk);
 int                 ft_rd(char **arr, t_ps **stka, t_flgs **flgs);
+int                 sortstk(t_ps **stka, t_ps **stkb, t_flgs **flgs);
+char                chkstk(t_ps *stka, t_ps *stkb);
 
 #endif
