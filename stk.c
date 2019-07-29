@@ -121,3 +121,28 @@ char    chkstk(t_ps *stka, t_ps *stkb)
     }
     return (1);
 }
+
+int    dex(t_ps **stk)
+{
+    int i;
+    t_ps *t;
+    t_ps *t1;
+
+
+    i = 0;
+    t = *stk;
+    while (t)
+    {
+        t1 = *stk;
+        t = NULL;
+        while (t1)
+        {
+            if ((t1->num < t->num) && !(t1->dx))
+                t = t1;
+            t1 = t1->xt;
+        }
+        if (t) 
+            t->dx = ++i;
+    }
+    return (i);
+}

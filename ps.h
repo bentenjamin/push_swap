@@ -11,6 +11,7 @@
 
 typedef struct  s_ps
 {
+    int             dx;
     int             num;
     struct s_ps    *xt;
 }                   t_ps;
@@ -31,5 +32,6 @@ char                ft_chkdups(int num, t_ps **stk);
 int                 ft_rd(char **arr, t_ps **stka, t_flgs **flgs);
 int                 sortstk(t_ps **stka, t_ps **stkb, t_flgs **flgs);
 char                chkstk(t_ps *stka, t_ps *stkb);
+int                 dex(t_ps **stk);
 
 #endif
