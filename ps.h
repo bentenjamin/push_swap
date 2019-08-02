@@ -22,6 +22,14 @@ typedef struct  s_flgs
     char            c : 1;
 }                   t_flgs;
 
+typedef struct  s_pass
+{
+    int             x;
+    int             y;
+    int             num;
+    char            **ins;
+}                   t_pass;
+
 void                caller(char *s, t_ps **stka, t_ps **stkb);
 void                ft_freestck(t_ps **stck);
 void                vall(t_ps *ta, t_ps *tb);
@@ -30,7 +38,7 @@ void                ft_setflgs(char *s, t_flgs **flgs);
 int                 ft_stkadd(int num, t_ps **stck);
 char                ft_chkdups(int num, t_ps **stk);
 int                 ft_rd(char **arr, t_ps **stka, t_flgs **flgs);
-int                 sortstk(t_ps **stka, t_ps **stkb, t_flgs **flgs);
+int                 shitsort(t_ps **stka, t_ps **stkb, t_flgs **flgs);
 char                chkstk(t_ps *stka, t_ps *stkb);
 int                 dex(t_ps **stk);
 

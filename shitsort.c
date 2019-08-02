@@ -44,7 +44,7 @@ int    spta(t_ps **stka, t_ps **stkb, t_flgs **flgs)
     return (k);
 }
 
-int    sortstk(t_ps **stka, t_ps **stkb, t_flgs **flgs)
+int    shitsort(t_ps **stka, t_ps **stkb, t_flgs **flgs)
 {
     char    i;
     int     k;
