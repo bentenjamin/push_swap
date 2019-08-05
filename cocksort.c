@@ -31,18 +31,87 @@ void    pshb(t_ps **stka, t_ps **stkb, t_flgs **flgs, int indx)
     }
 }
 
-t_pass  pinst(t_ps *stk, t_pass **pdets, int dir)
+void    pfwd(t_ps *stk, t_pass **pdets, int iter)
 {
     char    *insts;
 
+    (*pdets)->r = 0;
+    (*pdets)->s = 0;
     insts = "\0";
-    
+    while (iter)
+    {
+        if (stk->num > stk->xt->num)
+        {
+            caller ("sa", &stk, NULL);
+            ft_strcat(insts, "s ");
+            (*pdets)->s;
+        }
+        caller ("ra", &stk, NULL);
+        ft_strcat(insts, "r ");
+        (*pdets)->r++;
+        iter--;
+    }
+    (*pdets)->ins = ft_strsplit(insts, ' ');
+}
+
+void    prev(t_ps *stk, t_pass **pdets, int iter)
+{
+    char    *insts;
+
+    (*pdets)->r = 0;
+    (*pdets)->s = 0;
+    insts = "\0";
+    while (iter)
+    {
+        caller ("rra", &stk, NULL);
+        ft_strcat(insts, "r ");
+        (*pdets)->r++;
+        iter--;
+        if (stk->num > stk->xt->num)
+        {
+            caller ("sa", &stk, NULL);
+            ft_strcat(insts, "s ");
+            (*pdets)->s;
+        }
+    }
+    (*pdets)->ins = ft_strsplit(insts, ' ');
+}
+
+int stkcount(t_ps *stk)
+{
+    int i;
+
+    i = 0;
+    while (stk)
+    {
+        i++;
+        stk = stk->xt;
+    }
+    return(i);
 }
 
 int cocksort(t_ps **stka, t_ps **stkb, t_flgs **flgs, int indx)
 {
-
+    t_pass  *ap;
+    t_pass  *bp;
+    int     ia;
+    int     ib;
+    int     dir;
 
     pshb(stka, stkb, flgs, indx);
+    ia = stkcount(*stka);
+    ib = stkcount(*stkb);
+    if (ap)
+        free(ap);
+    if (bp)
+        free(bp);
+    ap = (t_pass *)malloc(sizeof(t_pass));
+    bp = (t_pass *)malloc(sizeof(t_pass));
+    dir = 1;
+    while (ia && ib)
+    {
+        
+    }
+
 
 }
