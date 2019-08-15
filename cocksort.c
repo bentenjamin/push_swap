@@ -35,8 +35,7 @@ void    pfwd(t_ps *stk, t_pass **pdets, int iter)
 {
     char    *insts;
 
-    (*pdets)->r = 0;
-    (*pdets)->s = 0;
+    (*pdets)->num = 0;
     insts = "\0";
     while (iter)
     {
@@ -44,11 +43,11 @@ void    pfwd(t_ps *stk, t_pass **pdets, int iter)
         {
             caller ("sa", &stk, NULL);
             ft_strcat(insts, "s ");
-            (*pdets)->s;
+            (*pdets)->num++;
         }
         caller ("ra", &stk, NULL);
         ft_strcat(insts, "r ");
-        (*pdets)->r++;
+        (*pdets)->num++;
         iter--;
     }
     (*pdets)->ins = ft_strsplit(insts, ' ');
@@ -58,20 +57,19 @@ void    prev(t_ps *stk, t_pass **pdets, int iter)
 {
     char    *insts;
 
-    (*pdets)->r = 0;
-    (*pdets)->s = 0;
+    (*pdets)->num = 0;
     insts = "\0";
     while (iter)
     {
         caller ("rra", &stk, NULL);
         ft_strcat(insts, "r ");
-        (*pdets)->r++;
+        (*pdets)->num++;
         iter--;
         if (stk->num > stk->xt->num)
         {
             caller ("sa", &stk, NULL);
             ft_strcat(insts, "s ");
-            (*pdets)->s;
+            (*pdets)->num++;
         }
     }
     (*pdets)->ins = ft_strsplit(insts, ' ');
@@ -94,23 +92,53 @@ int cocksort(t_ps **stka, t_ps **stkb, t_flgs **flgs, int indx)
 {
     t_pass  *ap;
     t_pass  *bp;
-    int     ia;
-    int     ib;
-    int     dir;
+    char    dir;
+    char    *t;
 
     pshb(stka, stkb, flgs, indx);
-    ia = stkcount(*stka);
-    ib = stkcount(*stkb);
+    dir = 1;
+    while (ia && ib)
+    {
     if (ap)
         free(ap);
     if (bp)
         free(bp);
     ap = (t_pass *)malloc(sizeof(t_pass));
     bp = (t_pass *)malloc(sizeof(t_pass));
-    dir = 1;
-    while (ia && ib)
+    if (dir)
     {
+        pfwd(*stka, &ap, ia);
+        pfwd(*stkb, &bp, ib);
+    }
+    else
+    {
+        prev(*stka, &ap, ia);
+        prev(*stkb, &bp, ib);
+    }
+    while (ap->num || bp->num)
+    {
+        if (ap->ins[ap->num] == bp->ins[bp->num])
+        {
+            t = (ap->ins[ap->num] == 'r') ? ((dir) ? "rr" : "rrr") : "ss";
+            ft_putstr_fd(t, 0);
+            caller(t, stka, stkb);
+            vstk((*stka), (*stkb), (*flgs));
+        }
+        else
+        {
+        if (ap->num > bp->num)
+        {
+            while ((ap->ins[ap->num] != bp->ins[bp->num]) &&  (ap->num) && (bp->num) && (ap->num > bp->num))
+            {
+                ft_putstr_fd("sa", 0);
+                caller("sa", stka, stkb);
+                vstk((*stka), (*stkb), (*flgs));
+                ap->num--;
+            }
+        }
+        }
         
+    }
     }
 
 
