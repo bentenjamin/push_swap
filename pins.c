@@ -2,13 +2,14 @@
 
 void    swp(t_ps **stk)
 {
-    int i;
+    t_ps *t;
 
     if (!(*stk) || !((*stk)->xt))
         return ;
-    i = (*stk)->num;
-    (*stk)->num = (*stk)->xt->num;
-    (*stk)->xt->num = i;
+    t = (*stk)->xt;
+    (*stk)->xt = (*stk)->xt->xt;
+    t->xt = (*stk);
+    *stk = t;
 }
 
 void    psh(t_ps **stkfrm, t_ps **stkto)

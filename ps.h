@@ -1,7 +1,6 @@
 #ifndef PS_H
 # define PS_H
 # include "Libft/libft.h"
-
 # define erexit {ft_putstr_fd("Error\n", 2);exit(1);}
 # define vstk(ta, tb, f) {if (f->v) {system("clear");\
                     ft_putendl("\nStack A\t\tStack B");\
@@ -41,5 +40,6 @@ int                 ft_rd(char **arr, t_ps **stka, t_flgs **flgs);
 int                 shitsort(t_ps **stka, t_ps **stkb, t_flgs **flgs);
 char                chkstk(t_ps *stka, t_ps *stkb);
 int                 dex(t_ps **stk);
+void printndx(t_ps *stk);
 
 #endif

@@ -58,6 +58,7 @@ int ft_stkadd(int num, t_ps **stck)
         return (0);
     nd->num = num;
     nd->xt = NULL;
+    nd->dx = 0;
     if (!*stck)
         *stck = nd;
     if (prevnode)
@@ -122,27 +123,52 @@ char    chkstk(t_ps *stka, t_ps *stkb)
     return (1);
 }
 
+int stksize(t_ps *stk)
+{
+    int i;
+
+    i = 0;
+    while (stk)
+    {
+        i++;
+        stk = stk->xt;
+    }
+    return (i);
+}
+
 int    dex(t_ps **stk)
 {
     int i;
+    int j;
     t_ps *t;
     t_ps *t1;
 
-
     i = 0;
-    t = *stk;
-    while (t)
+    t = (*stk);
+    j = stksize(*stk);
+    while (i < j)
     {
-        t1 = *stk;
-        t = NULL;
+        t1 = (*stk);
+        t = t1;
+        while (t->dx)
+            t = t->xt;
         while (t1)
         {
             if ((t1->num < t->num) && !(t1->dx))
                 t = t1;
             t1 = t1->xt;
         }
-        if (t) 
+        if (!(t->dx))
             t->dx = ++i;
     }
     return (i);
+}
+
+void printndx(t_ps *stk)
+{
+    while (stk)
+    {
+        printf("number: %d. Index: %d\n", stk->num, stk->dx);
+        stk = stk->xt;
+    }
 }

@@ -6,7 +6,7 @@ int main(int argc, char **argv)
     t_ps    *stka;
     t_ps    *stkb;
     int     i;
-
+    
     if (argc == 1)
         erexit;
     stkb = NULL;
@@ -16,6 +16,6 @@ int main(int argc, char **argv)
     i = dex(&stka);
     vstk(stka, stkb, flgs);
     ft_putnbr(shitsort(&stka, &stkb, &flgs));
-    ft_putstr(" operations");
+    ft_putstr(" operations\n");
     ft_freestck(&stka);
 }
