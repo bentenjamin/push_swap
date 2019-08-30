@@ -26,6 +26,7 @@ void    vall(t_ps *ta, t_ps *tb)
 
 void    ft_initflgs(t_flgs **flgs)
 {
+    (*flgs)->count = 0;
     (*flgs)->c = 0;
     (*flgs)->v = 0;
 }

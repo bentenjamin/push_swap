@@ -7,9 +7,10 @@
                     vall(ta, tb);\
                     ft_putstr("\n\n");\
                     usleep(100000);}}
-# define inst(sint, ta, tb, f) {caller(sint, ta, tb);\
-                    ft_putendl(sint);\
-                    vstk(ta, tb, f);}
+# define inst(sins, ta, tb, f) {caller(sins, ta, tb);\
+                    ft_putendl(sins);\
+                    vstk(*ta, *tb, f);}
+extern int count;
 
 typedef struct  s_ps
 {
@@ -20,6 +21,7 @@ typedef struct  s_ps
 
 typedef struct  s_flgs
 {
+    int             count;
     char            v : 1;
     char            c : 1;
 }                   t_flgs;
@@ -45,5 +47,6 @@ char                chkstk(t_ps *stka, t_ps *stkb);
 int                 dex(t_ps **stk);
 void                printndx(t_ps *stk);
 int                 stksize(t_ps *stk);
+int                 gsort(t_ps **stka, t_ps **stkb, t_flgs **flgs, int size);
 
 #endif

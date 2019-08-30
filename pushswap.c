@@ -15,7 +15,7 @@ int main(int argc, char **argv)
         erexit;
     i = dex(&stka);
     vstk(stka, stkb, flgs);
-    ft_putnbr(shitsort(&stka, &stkb, &flgs));
+    ft_putnbr(gsort(&stka, &stkb, &flgs, stksize(stka)));
     ft_putstr(" operations\n");
     ft_freestck(&stka);
 }

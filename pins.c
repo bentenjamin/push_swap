@@ -1,5 +1,5 @@
 #include "ps.h"
-
+int count = 0;
 void    swp(t_ps **stk)
 {
     t_ps *t;
@@ -54,20 +54,21 @@ void    revrot(t_ps **stk)
 
 void    caller(char *s, t_ps **stka, t_ps **stkb)
 {
-    if (ft_strncmp(s,"sa", 2) == 0 || ft_strncmp(s,"ss", 2) == 0)
+    if (ft_strequ(s,"sa") || ft_strequ(s,"ss"))
         swp(stka);
-    if (ft_strncmp(s,"sb", 2) == 0 || ft_strncmp(s,"ss", 2) == 0)
+    if (ft_strequ(s,"sb") || ft_strequ(s,"ss"))
         swp(stkb);
-    if (ft_strncmp(s,"pa", 2) == 0)
+    if (ft_strequ(s,"pa"))
         psh(stkb, stka);
-    if (ft_strncmp(s,"pb", 2) == 0)
+    if (ft_strequ(s,"pb"))
         psh(stka, stkb);
-    if (ft_strncmp(s,"ra", 2) == 0 || ft_strncmp(s,"rr", 2) == 0)
+    if (ft_strequ(s,"ra") || ft_strequ(s,"rr"))
         rot(stka);
-    if (ft_strncmp(s,"rb", 2) == 0 || ft_strncmp(s,"rr", 2) == 0)
+    if (ft_strequ(s,"rb") || ft_strequ(s,"rr"))
         rot(stkb);
-    if (ft_strncmp(s,"rra", 3) == 0 || ft_strncmp(s,"rrr", 3) == 0)
+    if (ft_strequ(s,"rra") || ft_strequ(s,"rrr"))
         revrot(stka);
-    if (ft_strncmp(s,"rrb", 3) == 0 || ft_strncmp(s,"rrr", 3) == 0)
+    if (ft_strequ(s,"rrb") || ft_strequ(s,"rrr"))
         revrot(stkb);
+    count++;
 }
