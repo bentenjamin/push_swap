@@ -7,6 +7,9 @@
                     vall(ta, tb);\
                     ft_putstr("\n\n");\
                     usleep(100000);}}
+# define inst(sint, ta, tb, f) {caller(sint, ta, tb);\
+                    ft_putendl(sint);\
+                    vstk(ta, tb, f);}
 
 typedef struct  s_ps
 {
@@ -40,6 +43,7 @@ int                 ft_rd(char **arr, t_ps **stka, t_flgs **flgs);
 int                 shitsort(t_ps **stka, t_ps **stkb, t_flgs **flgs);
 char                chkstk(t_ps *stka, t_ps *stkb);
 int                 dex(t_ps **stk);
-void printndx(t_ps *stk);
+void                printndx(t_ps *stk);
+int                 stksize(t_ps *stk);
 
 #endif
