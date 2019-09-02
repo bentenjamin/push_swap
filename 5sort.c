@@ -41,7 +41,7 @@ int gsort(t_ps **stka, t_ps **stkb, t_flgs **flgs, int size)
     int k;
     int gmax;
 
-    gmax = 10;
+    gmax = 10;//5 + (5 * ((int)pow(size, 1/3) / 5));
     i = 1;
     while (i <= gmax)
     {
@@ -51,7 +51,7 @@ int gsort(t_ps **stka, t_ps **stkb, t_flgs **flgs, int size)
             if (i % 2)
             {
                 
-                if (((*stka)->dx > (size * (gmax - ((i + 1) / 2)) / gmax)) && ((*stka)->dx <= ((size * (gmax - ((i + 1) / 2) + 1)) / gmax)))
+                if (((*stka)->dx > (size * (((gmax - i + 2) / 2) - 1) / gmax)) && ((*stka)->dx <= ((size * (((gmax - i + 2) / 2)) / gmax))))
                     inst("pb", stka, stkb, (*flgs))
                 else
                     inst("ra", stka, stkb, (*flgs));
@@ -59,20 +59,17 @@ int gsort(t_ps **stka, t_ps **stkb, t_flgs **flgs, int size)
             else
             {
                 inst("rra", stka, stkb, (*flgs));
-                if (((*stka)->dx > ((size * ((i / 2) - 1)) / gmax)) && ((*stka)->dx <= ((size * (i / 2)) / gmax)))
+                if (((*stka)->dx > ((size * (((gmax + i + 1) / 2) - 1)) / gmax)) && ((*stka)->dx <= ((size * ((gmax + i + 1) / 2)) / gmax)))
                     inst("pb", stka, stkb, (*flgs))
             }
             j++;
             
         }
-        k = btoa(stka, stkb, flgs, (i % 2) ? (size * (gmax - ((i + 1) / 2) + 1)) / gmax : size * (i / 2) / gmax);
+        k = btoa(stka, stkb, flgs, (i % 2) ? (size * ((gmax - i + 2) / 2)) / gmax : size * ((gmax + i + 1) / 2) / gmax);
         if (i != gmax && !(i % 2))
             while (k--)
                 inst("ra", stka, stkb, (*flgs));
         i++;
     }
-    k = ((gmax / 2) - ((i % 2) ? 1 : 0)) * (size / gmax);
-    while (k--)
-        inst("rra", stka, stkb, (*flgs));
     return (count);
 }

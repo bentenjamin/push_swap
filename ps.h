@@ -1,6 +1,7 @@
 #ifndef PS_H
 # define PS_H
 # include "Libft/libft.h"
+# include <math.h>
 # define erexit {ft_putstr_fd("Error\n", 2);exit(1);}
 # define vstk(ta, tb, f) {if (f->v) {system("clear");\
                     ft_putendl("\nStack A\t\tStack B");\
