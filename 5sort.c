@@ -41,7 +41,7 @@ int gsort(t_ps **stka, t_ps **stkb, t_flgs **flgs, int size)
     int k;
     int gmax;
 
-    gmax = 5;
+    gmax = 10;
     i = 1;
     while (i <= gmax)
     {
@@ -51,29 +51,27 @@ int gsort(t_ps **stka, t_ps **stkb, t_flgs **flgs, int size)
             if (i % 2)
             {
                 
-                if (((*stka)->dx > (size * (gmax - i) / gmax)) && ((*stka)->dx <= ((size * (gmax - i + 1)) / gmax)))
+                if (((*stka)->dx > (size * (gmax - ((i + 1) / 2)) / gmax)) && ((*stka)->dx <= ((size * (gmax - ((i + 1) / 2) + 1)) / gmax)))
                     inst("pb", stka, stkb, (*flgs))
                 else
                     inst("ra", stka, stkb, (*flgs));
             }
             else
             {
-                if (((*stka)->dx > ((size / gmax) * (i - 1))) && ((*stka)->dx <= ((size / gmax) * i)))
-                    inst("pb", stka, stkb, (*flgs))
                 inst("rra", stka, stkb, (*flgs));
+                if (((*stka)->dx > ((size * ((i / 2) - 1)) / gmax)) && ((*stka)->dx <= ((size * (i / 2)) / gmax)))
+                    inst("pb", stka, stkb, (*flgs))
             }
             j++;
             
         }
-        printf("kms\n");
-        k = btoa(stka, stkb, flgs, i * (size / gmax)); //i was sorting a seg fault here
-        printf("kms\n");
-        if (i != gmax)
+        k = btoa(stka, stkb, flgs, (i % 2) ? (size * (gmax - ((i + 1) / 2) + 1)) / gmax : size * (i / 2) / gmax);
+        if (i != gmax && !(i % 2))
             while (k--)
-                inst(((i % 2) ? "ra" : "rra"), stka, stkb, (*flgs));
+                inst("ra", stka, stkb, (*flgs));
         i++;
     }
-    k = (gmax / 2) * (size / gmax);
+    k = ((gmax / 2) - ((i % 2) ? 1 : 0)) * (size / gmax);
     while (k--)
         inst("rra", stka, stkb, (*flgs));
     return (count);

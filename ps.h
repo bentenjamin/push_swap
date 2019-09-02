@@ -6,7 +6,7 @@
                     ft_putendl("\nStack A\t\tStack B");\
                     vall(ta, tb);\
                     ft_putstr("\n\n");\
-                    usleep(100000);}}
+                    usleep(10000);}}
 # define inst(sins, ta, tb, f) {caller(sins, ta, tb);\
                     ft_putendl(sins);\
                     vstk(*ta, *tb, f);}
