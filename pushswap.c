@@ -11,11 +11,13 @@ int main(int argc, char **argv)
         erexit;
     stkb = NULL;
     flgs = (t_flgs *)malloc(sizeof(t_flgs));
+    ft_initflgs(&flgs);
     if (!(ft_rd(++argv, &stka, &flgs)))
         erexit;
     i = dex(&stka);
     vstk(stka, stkb, flgs);
     ft_putnbr(gsort(&stka, &stkb, &flgs, stksize(stka)));
     ft_putstr(" operations\n");
+    //printf("%i %i %i", flgs->g, 5 + (5 * ((ft_rndwncbrt(500) / 5))), stksize(stka));
     ft_freestck(&stka);
 }

@@ -22,7 +22,7 @@ typedef struct  s_ps
 
 typedef struct  s_flgs
 {
-    int             count;
+    int             g;
     char            v : 1;
     char            c : 1;
 }                   t_flgs;
@@ -39,7 +39,7 @@ void                caller(char *s, t_ps **stka, t_ps **stkb);
 void                ft_freestck(t_ps **stck);
 void                vall(t_ps *ta, t_ps *tb);
 void                ft_initflgs(t_flgs **flgs);
-void                ft_setflgs(char *s, t_flgs **flgs);
+int                 ft_setflgs(char *s, t_flgs **flgs, int gps);
 int                 ft_stkadd(int num, t_ps **stck);
 char                ft_chkdups(int num, t_ps **stk);
 int                 ft_rd(char **arr, t_ps **stka, t_flgs **flgs);

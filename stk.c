@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stk.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/03 15:39:54 by bwebb             #+#    #+#             */
+/*   Updated: 2019/09/03 15:48:26 by bwebb            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ps.h"
 
 void    ft_freestck(t_ps **stck)
@@ -26,12 +38,12 @@ void    vall(t_ps *ta, t_ps *tb)
 
 void    ft_initflgs(t_flgs **flgs)
 {
-    (*flgs)->count = 0;
+    (*flgs)->g = 0;
     (*flgs)->c = 0;
     (*flgs)->v = 0;
 }
 
-void    ft_setflgs(char *s, t_flgs **flgs)
+int    ft_setflgs(char *s, t_flgs **flgs, int gps)
 {
     int i;
 
@@ -41,6 +53,9 @@ void    ft_setflgs(char *s, t_flgs **flgs)
             (*flgs)->c = 1;
         else if (s[i] == 'v')
             (*flgs)->v = 1;
+        else if (s[i] == 'g')
+            (*flgs)->g = gps;
+    return ((s[i] == 'g') ? 1 : 0);
 }
 
 int ft_stkadd(int num, t_ps **stck)
@@ -86,27 +101,23 @@ int ft_rd(char **arr, t_ps **stka, t_flgs **flgs)
     int     k;
     char    **splt;
 
-    i = 0;
-    while (arr[i])
-    {
+    i = -1;
+    while (arr[++i])
         if (ft_strchr(arr[i], ' '))
         {
             k = 0;
             splt = ft_strsplit(arr[i], ' ');
             ft_rd(splt, stka, flgs);
-            while (splt[k])
-                free(splt[k++]);
-            free(splt);
         }
         else if (arr[i][0] == '-')
-            ft_setflgs(arr[i], flgs);
+            i += ft_setflgs(arr[i], flgs, ft_atoi(arr[i + 1]));
         else if ((!(ft_isonly(arr[i], ft_isdigit))) || \
                 (ft_atol(arr[i]) > INT32_MAX) || \
                 ft_chkdups(ft_atoi(arr[i]), stka) || \
                 (!(ft_stkadd(ft_atoi(arr[i]), stka))))
             return (0);
-    i++;
-    }
+    if (!((*flgs)->g))
+        (*flgs)->g = 5 + (5 * ((ft_rndwncbrt(stksize(*stka)) / 5)));
     return (1);
 }
 
