@@ -52,7 +52,7 @@ void    revrot(t_ps **stk)
     tmp->xt = NULL;
 }
 
-void    caller(char *s, t_ps **stka, t_ps **stkb)
+void    caller(char *s, t_ps **stka, t_ps **stkb, t_flgs **flgs)
 {
     if (ft_strequ(s,"sa") || ft_strequ(s,"ss"))
         swp(stka);
@@ -70,5 +70,5 @@ void    caller(char *s, t_ps **stka, t_ps **stkb)
         revrot(stka);
     if (ft_strequ(s,"rrb") || ft_strequ(s,"rrr"))
         revrot(stkb);
-    count++;
+    (*flgs)->count++;
 }

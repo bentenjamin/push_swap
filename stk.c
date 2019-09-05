@@ -6,7 +6,7 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 15:39:54 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/03 15:48:26 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/05 17:36:23 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,20 +30,22 @@ void    vall(t_ps *ta, t_ps *tb)
         ft_putchar('\t');
     (tb) ? ft_putnbr(tb->num) : ft_putchar('-');
     ft_putchar('\n');
-    ta = (ta) ? ((ta->xt) ? ta->xt : NULL) : NULL;
-    tb = (tb) ? ((tb->xt) ? tb->xt : NULL) : NULL;
+    ta = (ta && ta->xt) ? ta->xt : NULL;
+    tb = (tb && tb->xt) ? tb->xt : NULL;
     if (ta || tb)
         vall(ta, tb);
 }
 
 void    ft_initflgs(t_flgs **flgs)
 {
+    (*flgs)->i = 0;
+    (*flgs)->h = 0;
     (*flgs)->g = 0;
     (*flgs)->c = 0;
     (*flgs)->v = 0;
 }
 
-int    ft_setflgs(char *s, t_flgs **flgs, int gps)
+void    ft_setflgs(char *s, t_flgs **flgs)
 {
     int i;
 
@@ -53,9 +55,17 @@ int    ft_setflgs(char *s, t_flgs **flgs, int gps)
             (*flgs)->c = 1;
         else if (s[i] == 'v')
             (*flgs)->v = 1;
+        else if (s[i] == 'i')
+            (*flgs)->i = 1;
+        else if (s[i] == 'h')
+            (*flgs)->h = 1;
         else if (s[i] == 'g')
-            (*flgs)->g = gps;
-    return ((s[i] == 'g') ? 1 : 0);
+        {
+            i++;
+            (*flgs)->g = atoi(s + i);
+            while (isdigit(s[i]))
+                i++;
+        }
 }
 
 int ft_stkadd(int num, t_ps **stck)
@@ -110,7 +120,7 @@ int ft_rd(char **arr, t_ps **stka, t_flgs **flgs)
             ft_rd(splt, stka, flgs);
         }
         else if (arr[i][0] == '-')
-            i += ft_setflgs(arr[i], flgs, ft_atoi(arr[i + 1]));
+            ft_setflgs(arr[i], flgs);
         else if ((!(ft_isonly(arr[i], ft_isdigit))) || \
                 (ft_atol(arr[i]) > INT32_MAX) || \
                 ft_chkdups(ft_atoi(arr[i]), stka) || \
