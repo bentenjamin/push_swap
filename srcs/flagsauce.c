@@ -6,11 +6,11 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 14:35:39 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/06 14:42:33 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/06 16:15:50 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ps.h"
+#include "../includes/ps.h"
 
 void    ft_initflgs(t_flgs **flgs)
 {

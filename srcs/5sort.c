@@ -6,11 +6,11 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 09:23:56 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/06 14:33:38 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/06 16:13:25 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ps.h"
+#include "../includes/ps.h"
 
 int btoa(t_ps **stka, t_ps **stkb, t_flgs **flgs, int mxdx)
 {

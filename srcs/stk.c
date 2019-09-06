@@ -6,11 +6,11 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 15:39:54 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/06 14:46:16 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/06 16:13:50 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ps.h"
+#include "../includes/ps.h"
 
 void    ft_freestck(t_ps **stck)
 {

@@ -6,11 +6,11 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/05 17:10:05 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/06 14:46:06 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/06 16:13:43 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ps.h"
+#include "../includes/ps.h"
 
 char    chkstk(t_ps *stka, t_ps *stkb)
 {
@@ -26,7 +26,7 @@ char    chkstk(t_ps *stka, t_ps *stkb)
     return (1);
 }
 
-int    dex(t_ps **stk)
+void    dex(t_ps **stk)
 {
     int i;
     int j;
@@ -51,7 +51,6 @@ int    dex(t_ps **stk)
         if (!(t->dx))
             t->dx = ++i;
     }
-    return (i);
 }
 
 void printndx(t_ps *stk)

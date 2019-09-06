@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.c                                         :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/05 17:38:23 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/06 09:35:28 by bwebb            ###   ########.fr       */
+/*   Created: 2019/09/06 15:06:50 by bwebb             #+#    #+#             */
+/*   Updated: 2019/09/06 16:13:33 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ps.h"
+#include "../includes/ps.h"
 
 int main(int argc, char **argv)
 {
     t_flgs  *flgs;
     t_ps    *stka;
     t_ps    *stkb;
-    int     i;
-    
+    char    **s;
+
     if (argc == 1)
-        erexit;
+        exit(0);
+    s = malloc(1);
     stkb = NULL;
     flgs = (t_flgs *)malloc(sizeof(t_flgs));
-    ft_initflgs(&flgs);
     if (!(ft_rd(++argv, &stka, &flgs)))
-        erexit;
-    i = dex(&stka);
-    vstk(stka, stkb, flgs);
-    startsort(&stka, &stkb, &flgs, stksize(stka));
+        erexit();
+    while ((get_next_line(0,s)) > 0)
+    {
+        caller(*s, &stka, &stkb, &flgs);
+    }
+    ft_putstr((chkstk(stka, stkb)) ? "OK/n" : "KO/n");
     flgout(flgs);
+    free(s);
     ft_freestck(&stka);
 }

@@ -6,11 +6,17 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 14:43:41 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/06 14:44:05 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/06 16:13:56 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ps.h"
+#include "../includes/ps.h"
+
+void    erexit()
+{
+    ft_putstr_fd("Error\n", 2);
+    exit(1);
+}
 
 void    vall(t_ps *ta, t_ps *tb)
 {

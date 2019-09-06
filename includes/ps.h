@@ -6,15 +6,14 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 10:50:28 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/06 14:33:25 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/06 16:14:48 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PS_H
 # define PS_H
-# include "Libft/libft.h"
+# include "../Libft/libft.h"
 # include <ctype.h>
-# define erexit {ft_putstr_fd("Error\n", 2);exit(1);}
 # define af (*stka)->dx
 # define as (*stka)->xt->dx
 # define at (*stka)->xt->xt->dx
@@ -60,7 +59,7 @@ char                ft_chkdups(int num, t_ps **stk);
 int                 ft_rd(char **arr, t_ps **stka, t_flgs **flgs);
 int                 shitsort(t_ps **stka, t_ps **stkb, t_flgs **flgs);
 char                chkstk(t_ps *stka, t_ps *stkb);
-int                 dex(t_ps **stk);
+void                dex(t_ps **stk);
 void                printndx(t_ps *stk);
 int                 stksize(t_ps *stk);
 void                startsort(t_ps **sa, t_ps **sb, t_flgs **flgs, int size);
@@ -68,5 +67,7 @@ void                inst(char *s, t_ps **stka, t_ps **stkb, t_flgs **flgs);
 void                vstk(t_ps *stka, t_ps *stkb, t_flgs *flgs);
 void                flgout(t_flgs *flgs);
 char                *upordown(t_ps *stk, int indx);
+void                defflgs(t_ps **stka, t_flgs **flgs);
+void                erexit();
 
 #endif
