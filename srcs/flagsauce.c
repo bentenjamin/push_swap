@@ -6,7 +6,7 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 14:35:39 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/06 16:15:50 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/06 16:46:29 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ void    ft_setflgs(char *s, t_flgs **flgs)
         else if (s[i] == 'g')
         {
             (*flgs)->g = atoi(s + ++i);
-            while (isdigit(s[i]))
+            while (ft_isdigit(s[i]))
                 i++;
         }
         else if (s[i] == 's')
         {
             (*flgs)->s = atoi(s + ++i);
-            while (isdigit(s[i]))
+            while (ft_isdigit(s[i]))
                 i++;
         }
 }

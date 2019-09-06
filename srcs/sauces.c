@@ -6,7 +6,7 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/05 17:10:05 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/06 16:13:43 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/06 16:56:25 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char    chkstk(t_ps *stka, t_ps *stkb)
 
     while (stka)
     {
-        if (stka->num > stka->xt->num)
+        if ((stka->xt) && stka->num > stka->xt->num)
             return (0);
         stka = stka->xt;
     }

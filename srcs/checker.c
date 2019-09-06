@@ -6,7 +6,7 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 15:06:50 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/06 16:13:33 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/06 17:03:48 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ int main(int argc, char **argv)
     flgs = (t_flgs *)malloc(sizeof(t_flgs));
     if (!(ft_rd(++argv, &stka, &flgs)))
         erexit();
+	vstk(stka, stkb, flgs);
     while ((get_next_line(0,s)) > 0)
-    {
-        caller(*s, &stka, &stkb, &flgs);
-    }
-    ft_putstr((chkstk(stka, stkb)) ? "OK/n" : "KO/n");
+	{
+		caller(*s, &stka, &stkb, &flgs);
+		vstk(stka, stkb, flgs);
+	}
+    ft_putstr((chkstk(stka, stkb)) ? "OK\n" : "KO\n");
     flgout(flgs);
-    free(s);
-    ft_freestck(&stka);
 }

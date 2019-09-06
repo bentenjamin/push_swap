@@ -6,14 +6,13 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 10:50:28 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/06 16:14:48 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/06 16:33:16 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PS_H
 # define PS_H
 # include "../Libft/libft.h"
-# include <ctype.h>
 # define af (*stka)->dx
 # define as (*stka)->xt->dx
 # define at (*stka)->xt->xt->dx
