@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pushswap.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/05 17:38:23 by bwebb             #+#    #+#             */
+/*   Updated: 2019/09/06 09:35:28 by bwebb            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ps.h"
 
 int main(int argc, char **argv)
@@ -17,10 +29,6 @@ int main(int argc, char **argv)
     i = dex(&stka);
     vstk(stka, stkb, flgs);
     startsort(&stka, &stkb, &flgs, stksize(stka));
-    if (flgs->i)
-    {
-        ft_putstr(" operations\n");
-        ft_putnbr(flgs->count);
-    }
+    flgout(flgs);
     ft_freestck(&stka);
 }

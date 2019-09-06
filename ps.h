@@ -22,6 +22,7 @@ typedef struct  s_flgs
     char            h : 1;
     char            v : 1;
     char            c : 1;
+    int             s;
 }                   t_flgs;
 
 typedef struct  s_pass
@@ -49,5 +50,6 @@ void                startsort(t_ps **stka, t_ps **stkb, t_flgs **flgs, int size)
 void                inst(char *s, t_ps **stka, t_ps **stkb, t_flgs **flgs);
 void                vstk(t_ps *stka, t_ps *stkb, t_flgs *flgs);
 char                *cint(char *ins, char *stk);
+void                flgout(t_flgs *flgs);
 
 #endif

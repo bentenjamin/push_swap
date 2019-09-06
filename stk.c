@@ -6,7 +6,7 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 15:39:54 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/05 17:36:23 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/06 09:51:20 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void    vall(t_ps *ta, t_ps *tb)
 
 void    ft_initflgs(t_flgs **flgs)
 {
+    (*flgs)->count = 0;
+    (*flgs)->s = 100000;
     (*flgs)->i = 0;
     (*flgs)->h = 0;
     (*flgs)->g = 0;
@@ -61,8 +63,13 @@ void    ft_setflgs(char *s, t_flgs **flgs)
             (*flgs)->h = 1;
         else if (s[i] == 'g')
         {
-            i++;
-            (*flgs)->g = atoi(s + i);
+            (*flgs)->g = atoi(s + ++i);
+            while (isdigit(s[i]))
+                i++;
+        }
+        else if (s[i] == 's')
+        {
+            (*flgs)->s = atoi(s + ++i);
             while (isdigit(s[i]))
                 i++;
         }
@@ -105,6 +112,12 @@ char    ft_chkdups(int num, t_ps **stk)
     return (0);
 }
 
+void defflgs(t_ps **stka, t_flgs **flgs)
+{
+    if (!((*flgs)->g))
+        (*flgs)->g = 5 + (5 * ((ft_rndwncbrt(stksize(*stka)) / 5)));
+}
+
 int ft_rd(char **arr, t_ps **stka, t_flgs **flgs)
 {
     int     i;
@@ -126,8 +139,7 @@ int ft_rd(char **arr, t_ps **stka, t_flgs **flgs)
                 ft_chkdups(ft_atoi(arr[i]), stka) || \
                 (!(ft_stkadd(ft_atoi(arr[i]), stka))))
             return (0);
-    if (!((*flgs)->g))
-        (*flgs)->g = 5 + (5 * ((ft_rndwncbrt(stksize(*stka)) / 5)));
+    defflgs(stka, flgs);
     return (1);
 }
 
