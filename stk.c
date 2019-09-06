@@ -6,7 +6,7 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 15:39:54 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/06 09:51:20 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/06 14:15:11 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,10 +112,28 @@ char    ft_chkdups(int num, t_ps **stk)
     return (0);
 }
 
+int closestmult(int size, int start)
+{
+    int i;
+
+    i = 1;
+    while (start - i != 1)
+    {
+        if (size % (start - i) == 0)
+            return (start - i);
+        if (size % (start + i) == 0)
+            return (start + i);
+        i++;
+    }
+    return (1);
+}
+
 void defflgs(t_ps **stka, t_flgs **flgs)
 {
     if (!((*flgs)->g))
         (*flgs)->g = 5 + (5 * ((ft_rndwncbrt(stksize(*stka)) / 5)));
+    if (stksize(*stka) % gps)
+        gps = closestmult(stksize(*stka), gps);
 }
 
 int ft_rd(char **arr, t_ps **stka, t_flgs **flgs)

@@ -6,7 +6,7 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 09:23:56 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/05 17:33:51 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/06 13:53:36 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ char    *upordown(t_ps *stk, int indx)
         stk = stk->xt;
     }
     if ((size - (i - 1)) < i)
-        return ("rr");
-    return ("r");
+        return ("rrb");
+    return ("rb");
 }
 
 int btoa(t_ps **stka, t_ps **stkb, t_flgs **flgs, int mxdx)
@@ -37,7 +37,7 @@ int btoa(t_ps **stka, t_ps **stkb, t_flgs **flgs, int mxdx)
     while (*stkb)
     {
         while ((*stkb)->dx != mxdx)
-            inst(cint(upordown((*stkb), mxdx), "b"), stka, stkb, flgs);
+            inst(upordown((*stkb), mxdx), stka, stkb, flgs);
         inst("pa", stka, stkb, flgs);
         mxdx--;
     }
@@ -84,22 +84,22 @@ void    gsort(t_ps **stka, t_ps **stkb, t_flgs **flgs, int size)
     int j;
     int k;
 
-    i = 1;
-    while (i <= (*flgs)->g)
+    i = 0;
+    while (++i <= (*flgs)->g)
     {
         j = -1;
-        while (++j < (size - ((i - 1) * (size / (*flgs)->g))))
-            if (!(i % 2))
+        while (++j < (size - ((i - 1) * size / gps)))
+        {
+            if (!(i % 2 == gps % 2))
                 inst("rra", stka, stkb, flgs);
-            if ((af > (size * ((((*flgs)->g + (i % 2) ? 2 - i : i + 1) / 2) - 1) / (*flgs)->g)) && (af <= ((size * ((((*flgs)->g + (i % 2) ? 2 - i : i + 1) / 2)) / (*flgs)->g))))
+            if ((af > rng(oddoreven - 1)) && (af <= rng(oddoreven)))
                 inst("pb", stka, stkb, flgs);
-            else if (i % 2)
+            else if (i % 2 == gps % 2)
                 inst("ra", stka, stkb, flgs);
-        k = btoa(stka, stkb, flgs, (i % 2) ? (size * (((*flgs)->g - i + 2) / 2)) / (*flgs)->g : size * (((*flgs)->g + i + 1) / 2) / (*flgs)->g);
-        if (i != (*flgs)->g && !(i % 2))
-            while (k--)
-                inst("ra", stka, stkb, flgs);
-        i++;
+        }
+        k = btoa(stka, stkb, flgs, rng(oddoreven));
+        while (i != gps && !(i % 2 == gps % 2) && k--)
+            inst("ra", stka, stkb, flgs);
     }
 }
 

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ps.h                                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/06 10:50:28 by bwebb             #+#    #+#             */
+/*   Updated: 2019/09/06 12:41:24 by bwebb            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PS_H
 # define PS_H
 # include "Libft/libft.h"
@@ -6,6 +18,11 @@
 # define af (*stka)->dx
 # define as (*stka)->xt->dx
 # define at (*stka)->xt->xt->dx
+# define oddnum (2 - i)
+# define evenum (i + 1)
+# define oddoreven ((gps + ((i % 2 == gps % 2) ? oddnum : evenum)) / 2)
+# define gps (*flgs)->g
+# define rng(temp) (size * (temp) / gps)
 
 typedef struct  s_ps
 {
@@ -49,7 +66,6 @@ int                 stksize(t_ps *stk);
 void                startsort(t_ps **stka, t_ps **stkb, t_flgs **flgs, int size);
 void                inst(char *s, t_ps **stka, t_ps **stkb, t_flgs **flgs);
 void                vstk(t_ps *stka, t_ps *stkb, t_flgs *flgs);
-char                *cint(char *ins, char *stk);
 void                flgout(t_flgs *flgs);
 
 #endif
