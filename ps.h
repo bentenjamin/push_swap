@@ -6,7 +6,7 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 10:50:28 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/06 12:41:24 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/06 14:33:25 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,10 @@ char                chkstk(t_ps *stka, t_ps *stkb);
 int                 dex(t_ps **stk);
 void                printndx(t_ps *stk);
 int                 stksize(t_ps *stk);
-void                startsort(t_ps **stka, t_ps **stkb, t_flgs **flgs, int size);
+void                startsort(t_ps **sa, t_ps **sb, t_flgs **flgs, int size);
 void                inst(char *s, t_ps **stka, t_ps **stkb, t_flgs **flgs);
 void                vstk(t_ps *stka, t_ps *stkb, t_flgs *flgs);
 void                flgout(t_flgs *flgs);
+char                *upordown(t_ps *stk, int indx);
 
 #endif

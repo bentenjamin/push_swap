@@ -6,7 +6,7 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 15:39:54 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/06 14:15:11 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/06 14:46:16 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,59 +20,6 @@ void    ft_freestck(t_ps **stck)
             ft_freestck(&((*stck)->xt));
         free(*stck);
     }
-}
-
-void    vall(t_ps *ta, t_ps *tb)
-{
-    (ta) ? ft_putnbr(ta->num) : ft_putchar('-');
-    ft_putchar('\t');
-    if (!ta || (ta->num < 10000000))
-        ft_putchar('\t');
-    (tb) ? ft_putnbr(tb->num) : ft_putchar('-');
-    ft_putchar('\n');
-    ta = (ta && ta->xt) ? ta->xt : NULL;
-    tb = (tb && tb->xt) ? tb->xt : NULL;
-    if (ta || tb)
-        vall(ta, tb);
-}
-
-void    ft_initflgs(t_flgs **flgs)
-{
-    (*flgs)->count = 0;
-    (*flgs)->s = 100000;
-    (*flgs)->i = 0;
-    (*flgs)->h = 0;
-    (*flgs)->g = 0;
-    (*flgs)->c = 0;
-    (*flgs)->v = 0;
-}
-
-void    ft_setflgs(char *s, t_flgs **flgs)
-{
-    int i;
-
-    i = 0;
-    while (s[++i])
-        if (s[i] == 'c')
-            (*flgs)->c = 1;
-        else if (s[i] == 'v')
-            (*flgs)->v = 1;
-        else if (s[i] == 'i')
-            (*flgs)->i = 1;
-        else if (s[i] == 'h')
-            (*flgs)->h = 1;
-        else if (s[i] == 'g')
-        {
-            (*flgs)->g = atoi(s + ++i);
-            while (isdigit(s[i]))
-                i++;
-        }
-        else if (s[i] == 's')
-        {
-            (*flgs)->s = atoi(s + ++i);
-            while (isdigit(s[i]))
-                i++;
-        }
 }
 
 int ft_stkadd(int num, t_ps **stck)
@@ -112,30 +59,6 @@ char    ft_chkdups(int num, t_ps **stk)
     return (0);
 }
 
-int closestmult(int size, int start)
-{
-    int i;
-
-    i = 1;
-    while (start - i != 1)
-    {
-        if (size % (start - i) == 0)
-            return (start - i);
-        if (size % (start + i) == 0)
-            return (start + i);
-        i++;
-    }
-    return (1);
-}
-
-void defflgs(t_ps **stka, t_flgs **flgs)
-{
-    if (!((*flgs)->g))
-        (*flgs)->g = 5 + (5 * ((ft_rndwncbrt(stksize(*stka)) / 5)));
-    if (stksize(*stka) % gps)
-        gps = closestmult(stksize(*stka), gps);
-}
-
 int ft_rd(char **arr, t_ps **stka, t_flgs **flgs)
 {
     int     i;
@@ -161,20 +84,6 @@ int ft_rd(char **arr, t_ps **stka, t_flgs **flgs)
     return (1);
 }
 
-char    chkstk(t_ps *stka, t_ps *stkb)
-{
-    if (stkb)
-        return (0);
-
-    while (stka)
-    {
-        if (stka->num > stka->xt->num)
-            return (0);
-        stka = stka->xt;
-    }
-    return (1);
-}
-
 int stksize(t_ps *stk)
 {
     int i;
@@ -186,41 +95,4 @@ int stksize(t_ps *stk)
         stk = stk->xt;
     }
     return (i);
-}
-
-int    dex(t_ps **stk)
-{
-    int i;
-    int j;
-    t_ps *t;
-    t_ps *t1;
-
-    i = 0;
-    t = (*stk);
-    j = stksize(*stk);
-    while (i < j)
-    {
-        t1 = (*stk);
-        t = t1;
-        while (t->dx)
-            t = t->xt;
-        while (t1)
-        {
-            if ((t1->num < t->num) && !(t1->dx))
-                t = t1;
-            t1 = t1->xt;
-        }
-        if (!(t->dx))
-            t->dx = ++i;
-    }
-    return (i);
-}
-
-void printndx(t_ps *stk)
-{
-    while (stk)
-    {
-        printf("number: %d. Index: %d\n", stk->num, stk->dx);
-        stk = stk->xt;
-    }
 }

@@ -6,28 +6,11 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 09:23:56 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/06 13:53:36 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/06 14:33:38 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
-
-char    *upordown(t_ps *stk, int indx)
-{
-    int i;
-    int size;
-
-    i = 1;
-    size = stksize(stk);
-    while (stk->dx != indx)
-    {
-        i++;
-        stk = stk->xt;
-    }
-    if ((size - (i - 1)) < i)
-        return ("rrb");
-    return ("rb");
-}
 
 int btoa(t_ps **stka, t_ps **stkb, t_flgs **flgs, int mxdx)
 {
