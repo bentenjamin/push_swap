@@ -6,7 +6,7 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 14:35:39 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/07 21:36:21 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/07 22:58:15 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,6 @@ void	flgout(t_flgs *flgs)
 		ft_putstr("flags:\n\
 				-i : print number of operations\n\
 				-h : help\n\
-				-c : colours\n\
 				-v : visualise the sort\n\
 				-s : speed of the visualiser. default is 100000\n\
 				-g : specify the amount of groups to split into while sorting. \

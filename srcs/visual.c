@@ -6,7 +6,7 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 14:43:41 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/07 21:32:34 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/07 22:56:18 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	erexit(void)
 {
-	ft_putstr_fd("Error\n", 1);
+	ft_putstr_fd("Error Invalid Input\n", 1);
 	exit(1);
 }
 
