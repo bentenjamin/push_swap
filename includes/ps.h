@@ -6,7 +6,7 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 10:50:28 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/07 21:31:46 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/07 21:58:45 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void				vall(t_ps *ta, t_ps *tb);
 void				ft_initflgs(t_flgs **flgs);
 void				ft_setflgs(char *s, t_flgs **flgs);
 int					ft_stkadd(int num, t_ps **stck);
-char				ft_chkdups(int num, t_ps **stk);
+char				ft_chkdups(int num, t_ps *stk);
 int					ft_rd(char **arr, t_ps **stka, t_flgs **flgs);
 int					shitsort(t_ps **stka, t_ps **stkb, t_flgs **flgs);
 char				chkstk(t_ps *stka, t_ps *stkb);

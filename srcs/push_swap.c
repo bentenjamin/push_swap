@@ -6,7 +6,7 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/05 17:38:23 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/07 21:32:04 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/07 22:04:38 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,4 @@ int	main(int argc, char **argv)
 	dex(&stka);
 	startsort(&stka, &stkb, &flgs, stksize(stka));
 	flgout(flgs);
-	ft_freestck(&stka);
 }

@@ -6,7 +6,7 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 15:39:54 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/07 21:32:21 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/07 22:06:25 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,15 @@ int		ft_stkadd(int num, t_ps **stck)
 	return (1);
 }
 
-char	ft_chkdups(int num, t_ps **stk)
+char	ft_chkdups(int num, t_ps *stk)
 {
-	if (*stk)
+	if (stk)
 	{
-		if (num == (*stk)->num)
+		if (num == stk->num)
 			return (1);
-		if (!((*stk)->xt))
+		if (!(stk->xt))
 			return (0);
-		return (ft_chkdups(num, &((*stk)->xt)));
+		return (ft_chkdups(num, stk->xt));
 	}
 	return (0);
 }
@@ -71,13 +71,15 @@ int		ft_rd(char **arr, t_ps **stka, t_flgs **flgs)
 		{
 			k = 0;
 			splt = ft_strsplit(arr[i], ' ');
-			ft_rd(splt, stka, flgs);
+			if (!ft_rd(splt, stka, flgs))
+				return (0);
+			free (splt);
 		}
 		else if (arr[i][0] == '-')
 			ft_setflgs(arr[i], flgs);
 		else if ((!(ft_isonly(arr[i], ft_isdigit))) || \
 				(ft_atol(arr[i]) > INT32_MAX) || \
-				ft_chkdups(ft_atoi(arr[i]), stka) || \
+				ft_chkdups(ft_atoi(arr[i]), *stka) || \
 				(!(ft_stkadd(ft_atoi(arr[i]), stka))))
 			return (0);
 	defflgs(stka, flgs);
