@@ -6,19 +6,19 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 14:43:41 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/07 20:51:34 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/07 21:00:21 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ps.h"
 
-void    erexit()
+void	erexit(void)
 {
 	ft_putstr_fd("Error\n", 1);
 	exit(1);
 }
 
-void    vall(t_ps *ta, t_ps *tb)
+void	vall(t_ps *ta, t_ps *tb)
 {
 	(ta) ? ft_putnbr(ta->num) : ft_putchar('-');
 	ft_putchar('\t');

@@ -6,15 +6,15 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 16:12:00 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/07 20:50:59 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/07 20:59:41 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ps.h"
 
-void    swp(t_ps **stk)
+voidswp(t_ps **stk)
 {
-	t_ps *t;
+	t_ps	*t;
 
 	if (!(*stk) || !((*stk)->xt))
 		return ;
@@ -24,9 +24,9 @@ void    swp(t_ps **stk)
 	*stk = t;
 }
 
-void    psh(t_ps **stkfrm, t_ps **stkto)
+void	psh(t_ps **stkfrm, t_ps **stkto)
 {
-	t_ps *tmp;
+	t_ps	*tmp;
 
 	if (!(*stkfrm))
 		return ;
@@ -36,9 +36,9 @@ void    psh(t_ps **stkfrm, t_ps **stkto)
 	(*stkto)->xt = tmp;
 }
 
-void    rot(t_ps **stk)
+void	rot(t_ps **stk)
 {
-	t_ps    *tmp;
+	t_ps	*tmp;
 
 	if (!(*stk) || !((*stk)->xt))
 		return ;
@@ -50,9 +50,9 @@ void    rot(t_ps **stk)
 	tmp->xt->xt = NULL;
 }
 
-void    revrot(t_ps **stk)
+void	revrot(t_ps **stk)
 {
-	t_ps    *tmp;
+	t_ps	*tmp;
 
 	if (!(*stk) || !((*stk)->xt))
 		return ;
@@ -64,7 +64,7 @@ void    revrot(t_ps **stk)
 	tmp->xt = NULL;
 }
 
-void    caller(char *s, t_ps **stka, t_ps **stkb, t_flgs **flgs)
+void	caller(char *s, t_ps **stka, t_ps **stkb, t_flgs **flgs)
 {
 	if (ft_strequ(s,"sa") || ft_strequ(s,"ss"))
 		swp(stka);

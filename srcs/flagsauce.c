@@ -6,7 +6,7 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 14:35:39 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/07 20:50:50 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/07 20:58:50 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_initflgs(t_flgs **flgs)
 	(*flgs)->v = 0;
 }
 
-void    ft_setflgs(char *s, t_flgs **flgs)
+void	ft_setflgs(char *s, t_flgs **flgs)
 {
 	int i;
 
@@ -90,6 +90,6 @@ void	flgout(t_flgs *flgs)
 				-v : visualise the sort\n\
 				-s : speed of the visualiser. default is 100000\n\
 				-g : specify the amount of groups to split into while sorting. \
-				Will be forced to closest multiple of list size if it isnt already. \
+				Will be forced to closest multiple of list size if necessary. \
 				usage: -g5, sets groups to 5\n");
 }

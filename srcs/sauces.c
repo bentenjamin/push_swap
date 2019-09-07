@@ -6,17 +6,16 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/05 17:10:05 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/07 20:51:16 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/07 21:01:20 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ps.h"
 
-char    chkstk(t_ps *stka, t_ps *stkb)
+char	chkstk(t_ps *stka, t_ps *stkb)
 {
 	if (stkb)
 		return (0);
-
 	while (stka)
 	{
 		if ((stka->xt) && stka->num > stka->xt->num)
@@ -26,12 +25,12 @@ char    chkstk(t_ps *stka, t_ps *stkb)
 	return (1);
 }
 
-void    dex(t_ps **stk)
+void	dex(t_ps **stk)
 {
-	int i;
-	int j;
-	t_ps *t;
-	t_ps *t1;
+	int		i;
+	int		j;
+	t_ps	*t;
+	t_ps	*t1;
 
 	i = 0;
 	t = (*stk);
@@ -62,7 +61,7 @@ void	printndx(t_ps *stk)
 	}
 }
 
-char    *upordown(t_ps *stk, int indx)
+char	*upordown(t_ps *stk, int indx)
 {
 	int i;
 	int size;

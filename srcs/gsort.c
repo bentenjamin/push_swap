@@ -6,7 +6,7 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 09:23:56 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/07 20:50:33 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/07 21:02:47 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		btoa(t_ps **stka, t_ps **stkb, t_flgs **flgs, int mxdx)
 {
-	int size;
+	int	size;
 
 	size = stksize(*stkb);
 	while (*stkb)
@@ -36,7 +36,7 @@ void	sorthree(t_ps **stka, t_ps **stkb, t_flgs **flgs)
 	if (af < as && af > at && as > at)
 		inst("rra", stka, stkb, flgs);
 	if (af > as && af > at && as < at)
-		inst("ra", stka, stkb, flgs);    
+		inst("ra", stka, stkb, flgs);
 }
 
 void	sortfive(t_ps **stka, t_ps **stkb, t_flgs **flgs)
@@ -55,13 +55,13 @@ void	sortfive(t_ps **stka, t_ps **stkb, t_flgs **flgs)
 		else
 			inst("ra", stka, stkb, flgs);
 	if ((*stkb)->dx < (*stkb)->xt->dx)
-		inst("sb", stka, stkb, flgs); 
+		inst("sb", stka, stkb, flgs);
 	sorthree(stka, stkb, flgs);
 	inst("pa", stka, stkb, flgs);
 	inst("pa", stka, stkb, flgs);
 }
 
-void    gsort(t_ps **stka, t_ps **stkb, t_flgs **flgs, int size)
+void	gsort(t_ps **stka, t_ps **stkb, t_flgs **flgs, int size)
 {
 	int i;
 	int j;
@@ -86,7 +86,7 @@ void    gsort(t_ps **stka, t_ps **stkb, t_flgs **flgs, int size)
 	}
 }
 
-void    startsort(t_ps **stka, t_ps **stkb, t_flgs **flgs, int size)
+void	startsort(t_ps **stka, t_ps **stkb, t_flgs **flgs, int size)
 {
 	if (chkstk(*stka, *stkb))
 		return ;
