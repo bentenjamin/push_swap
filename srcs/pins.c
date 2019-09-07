@@ -6,13 +6,13 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 16:12:00 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/07 20:59:41 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/07 21:22:54 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ps.h"
 
-voidswp(t_ps **stk)
+void	swp(t_ps **stk)
 {
 	t_ps	*t;
 
@@ -66,21 +66,21 @@ void	revrot(t_ps **stk)
 
 void	caller(char *s, t_ps **stka, t_ps **stkb, t_flgs **flgs)
 {
-	if (ft_strequ(s,"sa") || ft_strequ(s,"ss"))
+	if (ft_strequ(s, "sa") || ft_strequ(s, "ss"))
 		swp(stka);
-	if (ft_strequ(s,"sb") || ft_strequ(s,"ss"))
+	if (ft_strequ(s, "sb") || ft_strequ(s, "ss"))
 		swp(stkb);
-	if (ft_strequ(s,"pa"))
+	if (ft_strequ(s, "pa"))
 		psh(stkb, stka);
-	if (ft_strequ(s,"pb"))
+	if (ft_strequ(s, "pb"))
 		psh(stka, stkb);
-	if (ft_strequ(s,"ra") || ft_strequ(s,"rr"))
+	if (ft_strequ(s, "ra") || ft_strequ(s, "rr"))
 		rot(stka);
-	if (ft_strequ(s,"rb") || ft_strequ(s,"rr"))
+	if (ft_strequ(s, "rb") || ft_strequ(s, "rr"))
 		rot(stkb);
-	if (ft_strequ(s,"rra") || ft_strequ(s,"rrr"))
+	if (ft_strequ(s, "rra") || ft_strequ(s, "rrr"))
 		revrot(stka);
-	if (ft_strequ(s,"rrb") || ft_strequ(s,"rrr"))
+	if (ft_strequ(s, "rrb") || ft_strequ(s, "rrr"))
 		revrot(stkb);
 	(*flgs)->count++;
 }
