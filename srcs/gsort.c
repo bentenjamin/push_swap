@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   5sort.c                                            :+:      :+:    :+:   */
+/*   gsort.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 09:23:56 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/07 21:02:47 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/07 21:31:53 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ int		btoa(t_ps **stka, t_ps **stkb, t_flgs **flgs, int mxdx)
 
 void	sorthree(t_ps **stka, t_ps **stkb, t_flgs **flgs)
 {
-	if ((af < as && af < at && as > at) || \
-			(af > as && af < at && as < at) || \
-			(af > as && af > at && as > at))
+	if ((AF < AS && AF < AT && AS > AT) || \
+			(AF > AS && AF < AT && AS < AT) || \
+			(AF > AS && AF > AT && AS > AT))
 		inst("sa", stka, stkb, flgs);
-	if (af < as && af > at && as > at)
+	if (AF < AS && AF > AT && AS > AT)
 		inst("rra", stka, stkb, flgs);
-	if (af > as && af > at && as < at)
+	if (AF > AS && AF > AT && AS < AT)
 		inst("ra", stka, stkb, flgs);
 }
 
@@ -47,7 +47,7 @@ void	sortfive(t_ps **stka, t_ps **stkb, t_flgs **flgs)
 	j = 0;
 	i = 0;
 	while (++j < 6 && i < 2)
-		if (af == 1 || af == 2)
+		if (AF == 1 || AF == 2)
 		{
 			i++;
 			inst("pb", stka, stkb, flgs);
@@ -71,17 +71,17 @@ void	gsort(t_ps **stka, t_ps **stkb, t_flgs **flgs, int size)
 	while (++i <= (*flgs)->g)
 	{
 		j = -1;
-		while (++j < (size - ((i - 1) * size / gps)))
+		while (++j < (size - ((i - 1) * size / GPS)))
 		{
-			if (!(i % 2 == gps % 2))
+			if (!(i % 2 == GPS % 2))
 				inst("rra", stka, stkb, flgs);
-			if ((af > rng(oddoreven - 1)) && (af <= rng(oddoreven)))
+			if ((AF > rng(ODDOREVEN - 1)) && (AF <= rng(ODDOREVEN)))
 				inst("pb", stka, stkb, flgs);
-			else if (i % 2 == gps % 2)
+			else if (i % 2 == GPS % 2)
 				inst("ra", stka, stkb, flgs);
 		}
-		k = btoa(stka, stkb, flgs, rng(oddoreven));
-		while (i != gps && !(i % 2 == gps % 2) && k--)
+		k = btoa(stka, stkb, flgs, rng(ODDOREVEN));
+		while (i != GPS && !(i % 2 == GPS % 2) && k--)
 			inst("ra", stka, stkb, flgs);
 	}
 }

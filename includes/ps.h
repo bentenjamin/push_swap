@@ -6,21 +6,21 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 10:50:28 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/07 21:11:36 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/07 21:31:46 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PS_H
 # define PS_H
 # include "../Libft/libft.h"
-# Define af (*stka)->dx
-# Define as (*stka)->xt->dx
-# Define at (*stka)->xt->xt->dx
-# Define oddnum (2 - i)
-# Define evenum (i + 1)
-# Define oddoreven ((gps + ((i % 2 == gps % 2) ? oddnum : evenum)) / 2)
-# Define gps (*flgs)->g
-# Define rng(temp) (size * (temp) / gps)
+# define AF (*stka)->dx
+# define AS (*stka)->xt->dx
+# define AT (*stka)->xt->xt->dx
+# define GPS (*flgs)->g
+# define ODDNUM (2 - i)
+# define EVENUM (i + 1)
+# define ODDOREVEN ((GPS + ((i % 2 == GPS % 2) ? ODDNUM : EVENUM)) / 2)
+# define RNG(temp) (size * (temp) / GPS)
 
 typedef struct		s_ps
 {

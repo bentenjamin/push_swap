@@ -18,11 +18,11 @@ OBJ_DIR = ./srcs/
 OPTIONS = -I$(INC_DIR) -I./libft -lft -L./libft
 HDR = ./includes/ps.h
 
-OBJ_CH = $(OBJ_DIR)checker.o $(OBJ_DIR)5sort.o $(OBJ_DIR)flagsauce.o
+OBJ_CH = $(OBJ_DIR)checker.o $(OBJ_DIR)gsort.o $(OBJ_DIR)flagsauce.o
 OBJ_CH += $(OBJ_DIR)pins.o $(OBJ_DIR)sauces.o $(OBJ_DIR)stk.o
 OBJ_CH += $(OBJ_DIR)visual.o 
 
-OBJ_PS = $(OBJ_DIR)push_swap.o $(OBJ_DIR)5sort.o
+OBJ_PS = $(OBJ_DIR)push_swap.o $(OBJ_DIR)gsort.o
 OBJ_PS += $(OBJ_DIR)flagsauce.o $(OBJ_DIR)pins.o $(OBJ_DIR)sauces.o
 OBJ_PS += $(OBJ_DIR)visual.o  $(OBJ_DIR)stk.o
 
