@@ -6,7 +6,7 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 15:39:54 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/07 22:06:25 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/07 22:42:10 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ int		ft_rd(char **arr, t_ps **stka, t_flgs **flgs)
 			splt = ft_strsplit(arr[i], ' ');
 			if (!ft_rd(splt, stka, flgs))
 				return (0);
+			while (splt[k])
+				free (splt[k++]);
 			free (splt);
 		}
 		else if (arr[i][0] == '-')
@@ -82,7 +84,6 @@ int		ft_rd(char **arr, t_ps **stka, t_flgs **flgs)
 				ft_chkdups(ft_atoi(arr[i]), *stka) || \
 				(!(ft_stkadd(ft_atoi(arr[i]), stka))))
 			return (0);
-	defflgs(stka, flgs);
 	return (1);
 }
 

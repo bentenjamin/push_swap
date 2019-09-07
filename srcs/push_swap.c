@@ -6,7 +6,7 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/05 17:38:23 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/07 22:04:38 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/07 22:42:17 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	main(int argc, char **argv)
 	ft_initflgs(&flgs);
 	if (!(ft_rd(++argv, &stka, &flgs)))
 		erexit();
+	defflgs(&stka, &flgs);
 	dex(&stka);
 	startsort(&stka, &stkb, &flgs, stksize(stka));
 	flgout(flgs);

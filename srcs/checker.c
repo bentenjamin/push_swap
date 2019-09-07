@@ -6,7 +6,7 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 15:06:50 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/07 20:53:26 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/07 22:18:13 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	main(int argc, char **argv)
 	ft_initflgs(&flgs);
 	if (!(ft_rd(++argv, &stka, &flgs)))
 		erexit();
+	defflgs(&stka, &flgs);
 	vstk(stka, stkb, flgs);
 	while ((get_next_line(0, s)) > 0)
 	{
