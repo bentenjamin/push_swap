@@ -6,7 +6,7 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 09:23:56 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/07 21:31:53 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/07 21:36:23 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,12 @@ void	gsort(t_ps **stka, t_ps **stkb, t_flgs **flgs, int size)
 		{
 			if (!(i % 2 == GPS % 2))
 				inst("rra", stka, stkb, flgs);
-			if ((AF > rng(ODDOREVEN - 1)) && (AF <= rng(ODDOREVEN)))
+			if ((AF > RNG(ODDOREVEN - 1)) && (AF <= RNG(ODDOREVEN)))
 				inst("pb", stka, stkb, flgs);
 			else if (i % 2 == GPS % 2)
 				inst("ra", stka, stkb, flgs);
 		}
-		k = btoa(stka, stkb, flgs, rng(ODDOREVEN));
+		k = btoa(stka, stkb, flgs, RNG(ODDOREVEN));
 		while (i != GPS && !(i % 2 == GPS % 2) && k--)
 			inst("ra", stka, stkb, flgs);
 	}

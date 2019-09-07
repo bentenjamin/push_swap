@@ -6,7 +6,7 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 14:35:39 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/07 20:58:50 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/07 21:36:21 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ void	defflgs(t_ps **stka, t_flgs **flgs)
 {
 	if (!((*flgs)->g))
 		(*flgs)->g = 5 + (5 * ((ft_rndwncbrt(stksize(*stka)) / 5)));
-	if (stksize(*stka) % gps)
-		gps = closestmult(stksize(*stka), gps);
+	if (stksize(*stka) % GPS)
+		GPS = closestmult(stksize(*stka), GPS);
 }
 
 void	flgout(t_flgs *flgs)
