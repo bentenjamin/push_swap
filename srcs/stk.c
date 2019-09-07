@@ -6,7 +6,7 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 15:39:54 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/07 22:42:10 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/07 22:43:26 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ int		ft_rd(char **arr, t_ps **stka, t_flgs **flgs)
 			if (!ft_rd(splt, stka, flgs))
 				return (0);
 			while (splt[k])
-				free (splt[k++]);
-			free (splt);
+				free(splt[k++]);
+			free(splt);
 		}
 		else if (arr[i][0] == '-')
 			ft_setflgs(arr[i], flgs);
