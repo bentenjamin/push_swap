@@ -6,7 +6,7 @@
 /*   By: bwebb <bwebb@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 10:50:28 by bwebb             #+#    #+#             */
-/*   Updated: 2019/09/06 16:33:16 by bwebb            ###   ########.fr       */
+/*   Updated: 2019/09/07 20:50:13 by bwebb            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,28 +24,28 @@
 
 typedef struct  s_ps
 {
-    int             dx;
-    int             num;
-    struct s_ps    *xt;
+	int             dx;
+	int             num;
+	struct s_ps    *xt;
 }                   t_ps;
 
 typedef struct  s_flgs
 {
-    int             g;
-    int             count;
-    char            i : 1;
-    char            h : 1;
-    char            v : 1;
-    char            c : 1;
-    int             s;
+	int             g;
+	int             count;
+	char            i : 1;
+	char            h : 1;
+	char            v : 1;
+	char            c : 1;
+	int             s;
 }                   t_flgs;
 
 typedef struct  s_pass
 {
-    int             x;
-    int             y;
-    int             num;
-    char            **ins;
+	int             x;
+	int             y;
+	int             num;
+	char            **ins;
 }                   t_pass;
 
 void                caller(char *s, t_ps **stka, t_ps **stkb, t_flgs **flgs);
